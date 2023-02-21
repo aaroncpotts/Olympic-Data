@@ -1,0 +1,141 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-1861878d839-11082dc7c101c67": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "Olympic",
+			"save-password": true,
+			"configuration": {
+				"database": "C:\\Users\\capta\\OneDrive\\Documents\\Olympic\\Olympic",
+				"url": "jdbc:sqlite:C:\\Users\\capta\\OneDrive\\Documents\\Olympic\\Olympic",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"auth-model": "native"
+			},
+			"custom-properties": {
+				"resultset.grid.value.format": "UI"
+			}
+		}
+	},
+	"virtual-models": {
+		"sqlite_jdbc-1861878d839-11082dc7c101c67": {
+			"@properties": {
+				"erd.diagram.state": {
+					"serialized": "\u003cdiagram version\u003d\"1\" name\u003d\"empty\" time\u003d\"202302031817\"\u003e\u003centities\u003e\u003cdata-source id\u003d\"sqlite_jdbc-1861878d839-11082dc7c101c67\"\u003e\u003centity id\u003d\"1\" name\u003d\"Olympic_Athlete_Bio\" fq-name\u003d\"Olympic_Athlete_Bio\" order\u003d\"0\" x\u003d\"233\" y\u003d\"27\"/\u003e\u003centity id\u003d\"2\" name\u003d\"Olympic_Athlete_Event_Results\" fq-name\u003d\"Olympic_Athlete_Event_Results\" order\u003d\"1\" border-width\u003d\"3\" x\u003d\"463\" y\u003d\"20\"/\u003e\u003centity id\u003d\"3\" name\u003d\"Olympics_Country\" fq-name\u003d\"Olympics_Country\" order\u003d\"2\" x\u003d\"20\" y\u003d\"322\"/\u003e\u003centity id\u003d\"4\" name\u003d\"Olympics_Games\" fq-name\u003d\"Olympics_Games\" order\u003d\"3\" x\u003d\"773\" y\u003d\"203\"/\u003e\u003c/data-source\u003e\u003c/entities\u003e\u003crelations\u003e\u003crelation name\u003d\"vfk_Olympics_Country_Olympic_Athlete_Bio\" type\u003d\"vfk\" pk-ref\u003d\"1\" fk-ref\u003d\"3\"/\u003e\u003crelation name\u003d\"vfk_Olympic_Athlete_Event_Results_Olympic_Athlete_Bio\" type\u003d\"vfk\" pk-ref\u003d\"1\" fk-ref\u003d\"2\"/\u003e\u003crelation name\u003d\"vfk_Olympic_Athlete_Bio_Olympic_Athlete_Event_Results\" type\u003d\"vfk\" pk-ref\u003d\"2\" fk-ref\u003d\"1\"/\u003e\u003crelation name\u003d\"vfk_Olympic_Athlete_Event_Results_Olympics_Country\" type\u003d\"vfk\" pk-ref\u003d\"2\" fk-ref\u003d\"3\"/\u003e\u003crelation name\u003d\"vfk_Olympics_Country_Olympics_Games\" type\u003d\"vfk\" pk-ref\u003d\"4\" fk-ref\u003d\"3\"\u003e\u003cbend type\u003d\"abs\" x\u003d\"233\" y\u003d\"393\"/\u003e\u003cbend type\u003d\"abs\" x\u003d\"463\" y\u003d\"393\"/\u003e\u003c/relation\u003e\u003crelation name\u003d\"vfk_Olympic_Athlete_Event_Results_Olympics_Games\" type\u003d\"vfk\" pk-ref\u003d\"4\" fk-ref\u003d\"2\"/\u003e\u003c/relations\u003e\u003c/diagram\u003e"
+				}
+			},
+			":Olympic_Athlete_Bio": {
+				"constraints": {
+					"Olympic_Athlete_Bio_VK": {
+						"type": "vpk",
+						"attributes": [
+							"country_noc"
+						]
+					},
+					"Olympic_Athlete_Bio_VK": {
+						"type": "vpk",
+						"attributes": [
+							"athlete_id"
+						]
+					}
+				},
+				"foreign-keys": [
+					{
+						"entity": "database://sqlite_jdbc-1861878d839-11082dc7c101c67/org.jkiss.dbeaver.ext.generic.model.GenericTable/Olympic_Athlete_Event_Results",
+						"constraint": "Olympic_Athlete_Event_Results_VK",
+						"attributes": {
+							"country_noc": "country_noc"
+						}
+					}
+				]
+			},
+			":Olympic_Athlete_Event_Results": {
+				"constraints": {
+					"Olympic_Athlete_Event_Results_VK": {
+						"type": "vpk",
+						"attributes": [
+							"country_noc"
+						]
+					}
+				},
+				"foreign-keys": [
+					{
+						"entity": "database://sqlite_jdbc-1861878d839-11082dc7c101c67/org.jkiss.dbeaver.ext.generic.model.GenericTable/Olympics_Games",
+						"constraint": "Olympics_Games_VK",
+						"attributes": {
+							"edition_id": "edition_id"
+						}
+					},
+					{
+						"entity": "database://sqlite_jdbc-1861878d839-11082dc7c101c67/org.jkiss.dbeaver.ext.generic.model.GenericTable/Olympic_Athlete_Bio",
+						"constraint": "Olympic_Athlete_Bio_VK",
+						"attributes": {
+							"athlete_id": "athlete_id"
+						}
+					},
+					{
+						"entity": "database://sqlite_jdbc-1861878d839-11082dc7c101c67/org.jkiss.dbeaver.ext.generic.model.GenericTable/Olympics_Country",
+						"constraint": "Olympics_Country_VK",
+						"attributes": {
+							"country_noc": "country_noc"
+						}
+					}
+				]
+			},
+			":Olympics_Country": {
+				"constraints": {
+					"Olympics_Country_VK": {
+						"type": "vpk",
+						"attributes": [
+							"country_noc"
+						]
+					}
+				},
+				"foreign-keys": [
+					{
+						"entity": "database://sqlite_jdbc-1861878d839-11082dc7c101c67/org.jkiss.dbeaver.ext.generic.model.GenericTable/Olympic_Athlete_Bio",
+						"constraint": "Olympic_Athlete_Bio_VK",
+						"attributes": {
+							"country_noc": "country_noc"
+						}
+					},
+					{
+						"entity": "database://sqlite_jdbc-1861878d839-11082dc7c101c67/org.jkiss.dbeaver.ext.generic.model.GenericTable/Olympics_Games",
+						"constraint": "Olympics_Games_VK",
+						"attributes": {
+							"country_noc": "country_noc"
+						}
+					}
+				]
+			},
+			":Olympics_Games": {
+				"constraints": {
+					"Olympics_Games_VK": {
+						"type": "vpk",
+						"attributes": [
+							"country_noc"
+						]
+					},
+					"Olympics_Games_VK": {
+						"type": "vpk",
+						"attributes": [
+							"edition_id"
+						]
+					}
+				}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}

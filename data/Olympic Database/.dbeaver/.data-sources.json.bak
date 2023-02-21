@@ -1,0 +1,29 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-1861878d839-11082dc7c101c67": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": "Olympic",
+			"save-password": true,
+			"configuration": {
+				"database": "C:\\Users\\capta\\OneDrive\\Documents\\Olympic\\Olympic",
+				"url": "jdbc:sqlite:C:\\Users\\capta\\OneDrive\\Documents\\Olympic\\Olympic",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"auth-model": "native"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}
